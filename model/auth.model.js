@@ -7,9 +7,10 @@ const authSchema = Schema({
     Firstname:{required:true,type:String},
     Lastname:{required:true,type:String},
     Email:{required:true,type:String,unique:true},
-    Phonenumber:{required:true,type:String},
+    Phonenumber:{required:true,type:String,unique:true},
     DOB:{required:true,type:String},
     Password:{required:true,type:String},
+    Profilepicture:{required:true,type:String},
 })
 
 let saltRound =10;
