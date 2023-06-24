@@ -1,7 +1,7 @@
 const authModel = require("../model/auth.model");
 
 const signup = async(req,res)=>{
-    // console.log(req.body);
+    console.log(req.body);
     const newUser = new authModel({
         Firstname:req.body.Firstname,
         Lastname:req.body.Lastname,
@@ -23,7 +23,7 @@ const signup = async(req,res)=>{
         }else{
            let savedUser = await authModel.create(newUser);
            if(savedUser){
-               res.send({message:"signup successful",status:true});
+               res.send({message:"signup successful",status:true,newUser});
            }
         }
     } 
