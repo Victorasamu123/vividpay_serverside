@@ -28,6 +28,17 @@ authSchema.pre("save",function(next){
     })
 });
 
+authSchema.methods.validatePassword= function(Password,callback){
+    bcrypt.compare(Password,this.Password,(err,same)=>{
+        console.log(same)
+        if(!err){
+            callback(err,same)
+        }else{
+            next()
+        }
+    })
+}
+
 const authModel = mongoose.model("vividpay_auth",authSchema);
 
 module.exports = authModel;
