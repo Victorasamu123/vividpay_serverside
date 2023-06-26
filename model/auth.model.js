@@ -11,6 +11,9 @@ const authSchema = Schema({
     DOB:{required:true,type:String},
     Password:{required:true,type:String},
     Profilepicture:{required:false,type:String},
+    AccountNumber:{required:true,type:String,uniue:true},
+    AccountBalance:{required:true,type:String},
+    BVN:{required:true,type:String,uniue:true}
 })
 
 let saltRound =10;

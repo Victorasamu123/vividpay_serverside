@@ -10,6 +10,9 @@ const signup = async(req,res)=>{
         DOB:req.body.DOB,
         Password:req.body.Password,
         Profilepicture:req.body.Profilepicture,
+        AccountNumber:req.body.AccountNumber,
+        AccountBalance:req.body.AccountBalance,
+        BVN:req.body.BVN
     });
     console.log(newUser);
     try {
