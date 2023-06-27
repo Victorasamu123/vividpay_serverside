@@ -1,11 +1,12 @@
 const express = require('express');
-const { signup, signin } = require('../controller/auth.controller');
-const { setpin } = require('../controller/pin.controller');
 const auth = express.Router();
+const { signup, signin, tokenverify } = require('../controller/auth.controller');
+const { setpin } = require('../controller/pin.controller');
 
 auth.post('/signup',signup);
 auth.post("/setpin",setpin);
 auth.post("/signin",signin);
+auth.get("/tokenverification",tokenverify);
 
 
 

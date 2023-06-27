@@ -52,18 +52,32 @@ const signin = async (req,res)=>{
                     res.send({message:"Server Error", status:false});
                 }else{
                     if(same){
-                        let token = jwt.sign({Email}, "secret",{expiresIn:'30m'})
+                        let token = jwt.sign({Email}, "secret",{expiresIn:'1h'})
                         res.send({message:"user signed in Successfully",status:true,token,userId:user._id, Email:user.Email})
                     }else{
                         res.send({message:"Invalid password", status:false})
                     }
                 }
             })
-        }
+        }``
     } catch (error) {
         res.send({message:"signin not successfull",status:false})
     }
 }
-module.exports = {
-    signup, signin
+
+const tokenverify = (req,res)=>{
+    let token = req.headers.authorization.split(" ")[1]
+    console.log(token)
+    jwt.verify(token,"secret",(err,result)=>{
+        if(err){
+            console.log(err)
+            res.send({message:"Error occured",status:false})
+        }else{
+            let Email = result.Email
+            res.send({message:"Congratulations",status:true})
+        }
+    })
 }
+module.exports = {
+    signup, signin, tokenverify
+};
