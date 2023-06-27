@@ -25,8 +25,9 @@ connection();
 
 //routes
 const auth = require('./routes/auth.route');
+const dashboard = require('./routes/Dashboard.route');
 app.use('/auth',auth)
-
+app.use('/dashboard',dashboard);
 //Port area
 app.listen(PORT, ()=>{
     console.log(`app is runningat PORT: ${PORT}`)
